@@ -13,13 +13,15 @@ import { HardhatUserConfig } from "hardhat/config"
  */
 
 const MAINNET_RPC_URL =
-    process.env.MAINNET_RPC_URL ||
-    process.env.ALCHEMY_MAINNET_RPC_URL ||
-    "https://eth-mainnet.alchemyapi.io/v2/your-api-key"
+  process.env.MAINNET_RPC_URL ||
+  process.env.ALCHEMY_MAINNET_RPC_URL ||
+  "https://eth-mainnet.alchemyapi.io/v2/your-api-key"
 const SEPOLIA_RPC_URL =
-    process.env.SEPOLIA_RPC_URL || "https://eth-sepolia.g.alchemy.com/v2/YOUR-API-KEY"
+  process.env.SEPOLIA_RPC_URL ||
+  "https://eth-sepolia.g.alchemy.com/v2/YOUR-API-KEY"
 const POLYGON_MAINNET_RPC_URL =
-    process.env.POLYGON_MAINNET_RPC_URL || "https://polygon-mainnet.alchemyapi.io/v2/your-api-key"
+  process.env.POLYGON_MAINNET_RPC_URL ||
+  "https://polygon-mainnet.alchemyapi.io/v2/your-api-key"
 const PRIVATE_KEY = process.env.PRIVATE_KEY
 // optional
 const MNEMONIC = process.env.MNEMONIC || "your mnemonic"
@@ -33,6 +35,7 @@ const REPORT_GAS = process.env.REPORT_GAS || false
 
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
+
   networks: {
     hardhat: {
       // // If you want to do some forking, uncomment this
@@ -75,6 +78,7 @@ const config: HardhatUserConfig = {
       sepolia: ETHERSCAN_API_KEY,
       polygon: POLYGONSCAN_API_KEY,
     },
+    customChains: [],
   },
   gasReporter: {
     enabled: REPORT_GAS,
